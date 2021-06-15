@@ -1,0 +1,16 @@
+@import "/src/styles.scss";
+
+.head {
+  justify-content: space-between;
+}
+
+img.avatar {
+  height: 3rem;
+  object-fit: scale-down;
+}
+
+div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}

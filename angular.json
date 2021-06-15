@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "spellwell"
+  "defaultProject": "spellwell",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

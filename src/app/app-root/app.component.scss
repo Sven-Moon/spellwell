@@ -1,0 +1,22 @@
+@import "/src/styles.scss";
+
+.app {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $bg-color;
+  color: white;
+}
+.main-panel {
+  //.app
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-inline: $mp-pad;
+  max-width: 768px;
+  height: calc(100% - #{$headerHt});
+  min-height: calc(100vh - #{$headerHt});
+  margin-inline: auto;
+}

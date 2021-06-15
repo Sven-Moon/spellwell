@@ -1,0 +1,53 @@
+.statBlock {
+  display: grid;
+  width: 100%;
+  grid-template:
+    [lbl-s] "ac_lbl str_lbl dex_lbl con_lbl int_lbl wis_lbl cha_lbl" 1.5rem [lbl-e]
+    [main-s] "ac str dex con int wis cha" 1.5rem [main-e]
+    [save-s] "save str_s dex_s con_s int_s wis_s cha_s" 1.5rem [save-e]
+    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+img {
+  object-fit: scale-down;
+  height: 3rem;
+}
+
+img.profile {
+  height: 3rem;
+}
+
+img.stat-sm {
+  max-height: 1rem;
+}
+
+.enemy-desc {
+  align-items: center;
+}
+
+table {
+  width: 100%;
+}
+
+tr > input {
+  display: flex;
+  width: 100%;
+  font-size: 0.7rem;
+}
+
+tr {
+  width: 400px;
+}
+
+tr.data {
+  height: 1.25rem;
+}
+
+td > input {
+  width: 100%;
+  margin: auto;
+}
+
+.text-sm {
+  font-size: 0.8rem;
+}
