@@ -23,12 +23,12 @@ $copy-padding: 0.5rem;
 
 .container {
   display: block;
-  width: calc(100% - #{$mp-pad});
+  width: 100%;
 }
 
 .container-flex {
   display: flex;
-  width: calc(100% - #{$mp-pad});
+  width: 100;
 }
 
 .copy {
@@ -51,7 +51,7 @@ $copy-padding: 0.5rem;
 .form-group {
   display: flex;
   flex-flow: row wrap;
-  margin: 0.125rem 0.5rem;
+  margin: 0.125rem 0;
   justify-content: left;
   width: 100%;
 }
@@ -61,11 +61,16 @@ $copy-padding: 0.5rem;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-inline: 5%;
+  padding-inline: 1rem;
   width: 100%;
   height: 2rem;
   background-color: #999;
-  margin-inline: 2.5%;
+  margin-inline: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  margin: 0 1rem 0.25rem;
 }
 
 .col-1 {

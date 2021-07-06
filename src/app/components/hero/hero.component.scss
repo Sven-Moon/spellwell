@@ -1,7 +1,10 @@
 @import "/src/styles.scss";
 
 .head {
+  display: flex;
   justify-content: space-between;
+  padding-inline: 1rem;
+  width: 100%;
 }
 
 img.avatar {
@@ -13,4 +16,18 @@ div {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+}
+
+input > .number {
+  max-width: 4rem;
+  margin-inline: 1.125%;
+}
+
+.hero-wrap {
+  grid-template:
+    [] title hero-img 3rem []
+    [] name name 3rem []
+    [] class class 3rem []
+    [] subclass subclass 3rem []
+    / 1fr 1fr 1fr;
 }

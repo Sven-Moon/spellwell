@@ -6,11 +6,5 @@ export interface Enemy {
   str: string
   dex: string
   wis: string
-  chaSave: string
-  conSave: string
-  intSave: string
-  strSave: string
-  dexSave: string
-  wisSave: string
   ac: string
 }

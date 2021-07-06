@@ -1,7 +1,12 @@
 @import "/src/styles.scss";
 
 .header {
+  display: flex;
   height: $headerHt;
   width: 100%;
   background-color: black;
+  color: aqua;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }

@@ -4,17 +4,17 @@ import { Injectable } from '@angular/core';
 import { concatMap } from 'rxjs/operators';
 import { Observable, EMPTY } from 'rxjs';
 
-import * as HeroActions from './hero.actions';
+import * as HitActions from './hit.actions';
 
 
 @Injectable()
-export class HeroEffects {
+export class HitEffects {
 
 
-  // loadHeros$ = createEffect(() => {
+  // loadHits$ = createEffect(() => {
   //   return this.actions$.pipe(
 
-  //     ofType(HeroActions.loadHeros),
+  //     ofType(HitActions.loadHits),
   //     /** An EMPTY observable only emits completion. Replace with your own observable API request */
   //     concatMap(() => EMPTY as Observable<{ type: string }>)
   //   );

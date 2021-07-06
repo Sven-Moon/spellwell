@@ -1,8 +1,8 @@
 export interface Hero {
-  id: string
+  // id: string
   name: string
-  spellMod: string
-  level: string
-  class: string
-  subClass: string
+  spellMod: number
+  level: number
+  // class: string
+  // subClass: string
 }
