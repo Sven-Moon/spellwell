@@ -1,7 +1,12 @@
-<ng-container>
-  <div class="spellmod row">
-    <img src="" alt="">
-    <div class="hit-chance"></div>
-    <button type="button" href="spell-list"></button>
+  <div class="hit-wrap">
+    <div class="spellmod row [flex-order]={{hit.ac}}">
+      <img src="./assets/images/stat_icons/AC_icon.png" alt="">
+      <div class="hit-chance">AC Hit: {{hit.ac |percent}}</div>
+      <button type="button" href="spell-list">Spell List</button>
+    </div>
+    <div class="spellmod row [flex-order]={{hit.str}}">
+      <img src="./assets/images/stat_icons/AC_icon.png" alt="">
+      <div class="hit-chance">Str Hit: {{hit.str |percent}}</div>
+      <button type="button" href="spell-list">Spell List</button>
+    </div>
   </div>
-</ng-container>

@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { Hero } from 'src/app/models/Hero';
 import * as fromHero from './hero.reducer';
 
 export const selectHeroState = createFeatureSelector<fromHero.State>(
@@ -20,3 +21,9 @@ export const selectProfBonus = createSelector(
     else return 6
   }
 )
+
+export const selectHeroSpellMod = createSelector(
+  selectHero,
+  selectProfBonus,
+  (state: Hero, pb: number) => state.spellMod + pb
+);
