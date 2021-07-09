@@ -1,7 +1,23 @@
 .hit-wrap {
   display: flex;
+  flex-flow: column nowrap;
 }
 
-.spell-mod {
-  -ms-flex-order: 1;
+.spellmod > div {
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.spellmod img {
+  height: 1rem;
+  object-fit: scale-down;
+}
+#ac {
+  display: flex;
+  order: 2;
+}
+#str {
+  display: flex;
+  order: 1;
 }

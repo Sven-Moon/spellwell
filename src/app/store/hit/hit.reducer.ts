@@ -4,7 +4,7 @@ import * as HitActions from './hit.actions';
 export const hitFeatureKey = 'hit';
 
 export interface State {
-  sp_atk: number
+  ac: number
   str: number
   dex: number
   con: number
@@ -14,7 +14,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  sp_atk: 0,
+  ac: 0,
   str: 0,
   dex: 0,
   con: 0,

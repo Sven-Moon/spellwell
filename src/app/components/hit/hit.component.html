@@ -1,12 +1,9 @@
   <div class="hit-wrap">
-    <div class="spellmod row [flex-order]={{hit.ac}}">
-      <img src="./assets/images/stat_icons/AC_icon.png" alt="">
-      <div class="hit-chance">AC Hit: {{hit.ac |percent}}</div>
-      <button type="button" href="spell-list">Spell List</button>
-    </div>
-    <div class="spellmod row [flex-order]={{hit.str}}">
-      <img src="./assets/images/stat_icons/AC_icon.png" alt="">
-      <div class="hit-chance">Str Hit: {{hit.str |percent}}</div>
-      <button type="button" href="spell-list">Spell List</button>
-    </div>
+    <ng-container *ngFor="let index of statIndex">
+      <div class="spellmod row" id="{{index}}" [ngStyle]="{order: hitOrder[index].order}">
+        <img src="./assets/images/stat_icons/{{index}}_icon.png" alt="">
+        <div class="hit-chance">{{index |uppercase}} Hit: {{hitOrder[index].value |percent}}</div>
+        <button type="button" href="spell-list">Spell List</button>
+      </div>
+    </ng-container>
   </div>
