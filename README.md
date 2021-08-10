@@ -29,3 +29,4 @@ Dungeons & Dragons users enter in known stats for their enemy and stats for thei
 ## What I Learned
 - how challenging it is to select the right input / results layout
 - importance of the use of "or undefined" in data models
+- ordering styling components using [ngStyle], though I could have just as easily used [ngClass]
