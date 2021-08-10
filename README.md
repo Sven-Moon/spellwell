@@ -1,6 +1,7 @@
 # Spellwell
 
-This my first project to favor logic over style and my first project to feature dark mode, which I generally prefer, aesthetics be damned. It's also my first project in which I just decided I wanted to do a thing and did it. All of my prior projects were like, "What will a company probably want me to do?" The equation is super simple, but was highly enjoyable to create & it makes me think I should find a spot in finance, in which I'm already interested.
+This my first project to favor logic over style and my first project to feature dark mode, which I generally prefer, aesthetics be damned. It's also my first project in which I just decided I wanted to do a thing and did it. All of my prior projects were like, "What will a company probably want me to do?" The equation is super simple, but was highly enjoyable to create & it makes me think I should find a spot in finance, in which I'm already interested.<br>
+Unlike the majority of my other projects that will just sit there as they are, only used to develop skill & confidence, I do intend to come back to this one to add features over time, thus, I have a Future Enhancements section. 
 
 ### Purpose
 Dungeons & Dragons users enter in known stats for their enemy and stats for their character. The application then runs a calculation to determine which spell type has the highest percentage chance (using a fair 20-sided die) to hit the target. This is a slightly more complicated equation than it sounds because sometimes it's the player rolling, while other times it's the target enemy rolling, and the winner of the tie is always in favor of the roller. 
