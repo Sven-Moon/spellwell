@@ -1,27 +1,31 @@
 # Spellwell
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+This my first project to favor logic over style and my first project to feature dark mode, which I generally prefer, aesthetics be damned. It's also my first project in which I just decided I wanted to do a thing and did it. All of my prior projects were like, "What will a company probably want me to do?" The equation is super simple, but was highly enjoyable to create & it makes me think I should find a spot in finance, in which I'm already interested.
 
-## Development server
+### Purpose
+Dungeons & Dragons users enter in known stats for their enemy and stats for their character. The application then runs a calculation to determine which spell type has the highest percentage chance (using a fair 20-sided die) to hit the target. This is a slightly more complicated equation than it sounds because sometimes it's the player rolling, while other times it's the target enemy rolling, and the winner of the tie is always in favor of the roller. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
+- calculation of expected hit percentage
+- data entry with default values
+- self-sorted list of results
 
-## Code scaffolding
+### Backend Features
+- ngrx state
+- reactive forms with validation
+- grid & table styling
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Future Enhancements
+- API for importing monsters and searching to pre-fill stat blocks
+- (multiple) character save
+- (multiple) custom monster save
+- API to pull in spell lists
+- display of spells that match class/subclass/spell type filters
+- modification of hit percentages based on applied conditions (moster & character)
+- authorization module
+- expected damage output (based on average hit value & % chance to hit)
+- critical hit percentage (65%) line
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## What I Learned
+- how challenging it is to select the right input / results layout
+- importance of the use of "or undefined" in data models
