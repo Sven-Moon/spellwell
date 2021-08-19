@@ -2,7 +2,12 @@
     <ng-container *ngFor="let index of statIndex">
       <div class="spellmod row" id="{{index}}" [ngStyle]="{order: hitOrder[index].order}">
         <img src="./assets/images/stat_icons/{{index}}_icon.png" alt="">
-        <div class="hit-chance">{{index |uppercase}} Hit: {{hitOrder[index].value |percent}}</div>
+        <div *ngIf="hitOrder[index].value" class="hit-chance">
+          {{index |uppercase}}: {{hitOrder[index].value |percent}}
+        </div>
+        <div *ngIf="!hitOrder[index].value" class="hit-chance">
+          {{index |uppercase}}: N/A
+        </div>
         <button type="button" href="spell-list">Spell List</button>
       </div>
     </ng-container>

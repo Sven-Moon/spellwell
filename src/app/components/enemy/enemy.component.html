@@ -7,15 +7,15 @@
 
     <table>
       <tr>
-        <th><img src="./assets/images/stat_icons/AC_icon.png" class="stat-sm" alt=""></th>
-        <th><img src="./assets/images/stat_icons/str_icon.png" class="stat-sm" alt=""></th>
-        <th><img src="./assets/images/stat_icons/dex_icon.png" class="stat-sm" alt=""></th>
-        <th><img src="./assets/images/stat_icons/con_icon.png" class="stat-sm" alt=""></th>
-        <th><img src="./assets/images/stat_icons/int_icon.png" class="stat-sm" alt=""></th>
-        <th><img src="./assets/images/stat_icons/wis_icon.png" class="stat-sm" alt=""></th>
-        <th><img src="./assets/images/stat_icons/cha_icon.png" class="stat-sm" alt=""></th>
+        <th><img src="./assets/images/stat_icons/ac_icon.png" class="stat-sm" alt="">AC</th>
+        <th><img src="./assets/images/stat_icons/str_icon.png" class="stat-sm" alt="">Str</th>
+        <th><img src="./assets/images/stat_icons/dex_icon.png" class="stat-sm" alt="">Dex</th>
+        <th><img src="./assets/images/stat_icons/con_icon.png" class="stat-sm" alt="">Con</th>
+        <th><img src="./assets/images/stat_icons/int_icon.png" class="stat-sm" alt="">Int</th>
+        <th><img src="./assets/images/stat_icons/wis_icon.png" class="stat-sm" alt="">Wis</th>
+        <th><img src="./assets/images/stat_icons/cha_icon.png" class="stat-sm" alt="">Cha</th>
       </tr>
-      <tr>
+      <!-- <tr>
         <th>AC</th>
         <th>Str</th>
         <th>Dex</th>
@@ -23,25 +23,16 @@
         <th>Int</th>
         <th>Wis</th>
         <th>Cha</th>
-      </tr>
+      </tr> -->
       <tr class="data">
         <td><input type="number" name="ac" class="form-control" id="" formControlName="ac" (change)="updateEnemy()" min=0 max=30></td>
-        <td><input type="number" name="str" class="form-control" id="" formControlName="str" (change)="updateEnemy()"></td>
-        <td><input type="number" name="dex" class="form-control" id="" formControlName="dex" (change)="updateEnemy()"></td>
-        <td><input type="number" name="con" class="form-control" id="" formControlName="con" (change)="updateEnemy()"></td>
-        <td><input type="number" name="int" class="form-control" id="" formControlName="int" (change)="updateEnemy()"></td>
-        <td><input type="number" name="wis" class="form-control" id="" formControlName="wis" (change)="updateEnemy()"></td>
-        <td><input type="number" name="cha" class="form-control" id="" formControlName="cha" (change)="updateEnemy()"></td>
+        <td><input type="number" name="str" class="form-control" id="" formControlName="str" (change)="updateEnemy()"  min=-5 max=10 ></td>
+        <td><input type="number" name="dex" class="form-control" id="" formControlName="dex" (change)="updateEnemy()"  min=-5 max=10></td>
+        <td><input type="number" name="con" class="form-control" id="" formControlName="con" (change)="updateEnemy()"  min=-5 max=10></td>
+        <td><input type="number" name="int" class="form-control" id="" formControlName="int" (change)="updateEnemy()"  min=-5 max=10></td>
+        <td><input type="number" name="wis" class="form-control" id="" formControlName="wis" (change)="updateEnemy()"  min=-5 max=10></td>
+        <td><input type="number" name="cha" class="form-control" id="" formControlName="cha" (change)="updateEnemy()"  min=-5 max=10></td>
       </tr>
-      <!-- <tr>
-        <td class="text-sm">Saves</td>
-        <td><input type="number" name="ac" class="form-control" id="" formControlName=""><" (change)="updateEnemy()/td>
-        <td><input type="number" name="ac" class="form-control" id="" formControlName=""><" (change)="updateEnemy()/td>
-        <td><input type="number" name="ac" class="form-control" id="" formControlName=""><" (change)="updateEnemy()/td>
-        <td><input type="number" name="ac" class="form-control" id="" formControlName=""><" (change)="updateEnemy()/td>
-        <td><input type="number" name="ac" class="form-control" id="" formControlName=""><" (change)="updateEnemy()/td>
-        <td><input type="number" name="ac" class="form-control" id="" formControlName=""><" (change)="updateEnemy()/td>
-      </tr> -->
     </table>
   </div>
 </form>

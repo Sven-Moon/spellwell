@@ -17,8 +17,22 @@ img.profile {
   height: 3rem;
 }
 
+th {
+  // display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+th > div {
+  width: 2.5rem;
+}
+
 img.stat-sm {
+  max-width: 1rem;
   max-height: 1rem;
+  margin-right: 0.5rem;
 }
 
 .enemy-desc {

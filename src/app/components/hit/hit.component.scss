@@ -1,6 +1,13 @@
 .hit-wrap {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column-reverse nowrap;
+}
+
+.spellmod {
+  margin: 0.1rem;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+  border: 1px solid #444;
 }
 
 .spellmod > div {
@@ -10,8 +17,9 @@
 }
 
 .spellmod img {
-  height: 1rem;
+  max-height: 2rem;
   object-fit: scale-down;
+  width: 2rem;
 }
 #ac {
   display: flex;
@@ -20,4 +28,10 @@
 #str {
   display: flex;
   order: 1;
+}
+.hit-chance {
+  display: flex;
+  align-items: center;
+  padding-inline: 0.5rem;
+  width: 5rem;
 }

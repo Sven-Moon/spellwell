@@ -34,31 +34,31 @@ export class HitComponent implements OnInit {
         },
         cha: {
           order: +this.hit.cha * 20,
-          value: this.hit.ac
+          value: this.hit.cha
         },
         con: {
           order: +this.hit.con * 20,
-          value: this.hit.ac
+          value: this.hit.con
         },
         dex: {
           order: +this.hit.dex * 20,
-          value: this.hit.ac
+          value: this.hit.dex
         },
         int: {
           order: +this.hit.int * 20,
-          value: this.hit.ac
+          value: this.hit.int
         },
         str: {
           order: +this.hit.str * 20,
-          value: this.hit.ac
+          value: this.hit.str
         },
         wis: {
           order: +this.hit.wis * 20,
-          value: this.hit.ac
+          value: this.hit.wis
         },
       }
-      console.log(this.hitOrder.ac)
-      console.log(this.hit.ac)
+      console.log(this.hitOrder["ac"].value)
+      console.log(this.hitOrder["ac"].order)
     })
 
   }
