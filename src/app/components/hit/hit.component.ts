@@ -16,18 +16,19 @@ export class HitComponent implements OnInit {
     private store: Store
   ) { }
 
+  /**
+   * Stats start at null, producing 'N/A' for display;
+   * Order is determined by hits out of 20 (d20); Value
+   * is the %chance to hit.
+   * The red bar indicates order = 13 or 65%, the recommended
+   * value for engagements.
+   */
   ngOnInit(): void {
     this.store.select(selectHit).subscribe(hit => {
       this.hit = hit
       this.hitOrder = {
-        // { ac: +this.hit.ac * 20 },
-        // { cha: +this.hit.cha * 20 },
-        // { con: +this.hit.con * 20 },
-        // { dex: +this.hit.dex * 20 },
-        // { int: +this.hit.int * 20 },
-        // { str: +this.hit.str * 20 },
-        // { wis: +this.hit.wis * 20 },
-
+        // hit.<stat> is x of 20 to hit
+        // min = 0; max = 20;
         ac: {
           order: +this.hit.ac * 20,
           value: this.hit.ac
@@ -57,8 +58,6 @@ export class HitComponent implements OnInit {
           value: this.hit.wis
         },
       }
-      console.log(this.hitOrder["ac"].value)
-      console.log(this.hitOrder["ac"].order)
     })
 
   }

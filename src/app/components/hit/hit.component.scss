@@ -8,6 +8,8 @@
   padding: 0.2rem;
   border-radius: 0.3rem;
   border: 1px solid #444;
+  background-color: rgb(230, 230, 230);
+  color: black;
 }
 
 .spellmod > div {
@@ -35,3 +37,10 @@
   padding-inline: 0.5rem;
   width: 5rem;
 }
+
+.baseline-bar {
+  width: 100%;
+  border-color: red;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+ }
