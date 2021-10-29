@@ -1,0 +1,25 @@
+{
+  "firebaseConfig": {
+    "apiKey": "AIzaSyCxAcMjLF0FZ5-HNZspaB6xVabRB2pAGPs",
+    "authDomain": "spellwell-moon.firebaseapp.com",
+    "projectId": "spellwell-moon",
+    "storageBucket": "spellwell-moon.appspot.com",
+    "messagingSenderId": "339623878302",
+    "appId": "1:339623878302:web:ac11ab9afabdbbb1baa58f",
+    "measurementId": "G-QRTLFG0QKN"
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

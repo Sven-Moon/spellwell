@@ -12,43 +12,67 @@ export const selectHitState = createFeatureSelector<fromHit.State>(
 export const selectAcHit = createSelector(
   selectEnemyState,
   selectHeroSpellMod,
-  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.ac) { return (20 + heroSpellMod - enemy.ac) / 20 } else return undefined }
+  (enemy: Enemy, heroSpellMod: number): number | undefined => {
+    if (enemy.ac !== undefined) {
+      return (20 + heroSpellMod - enemy.ac) / 20
+    } else return undefined
+  }
 );
 
 export const selectChaHit = createSelector(
   selectEnemyState,
   selectHeroSpellMod,
-  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.cha) { return (8 + heroSpellMod - 1 - enemy.cha) / 20 } else return undefined }
+  (enemy: Enemy, heroSpellMod: number): number | undefined => {
+    if (enemy.cha !== undefined) {
+      return (8 + heroSpellMod - 1 - enemy.cha) / 20
+    } else return undefined
+  }
 );
 
 export const selectConHit = createSelector(
   selectEnemyState,
   selectHeroSpellMod,
-  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.con) { return (8 + heroSpellMod - 1 - enemy.con) / 20 } else return undefined }
+  (enemy: Enemy, heroSpellMod: number): number | undefined => {
+    if (enemy.con !== undefined) {
+      return (8 + heroSpellMod - 1 - enemy.con) / 20
+    } else return undefined
+    }
 );
 
 export const selectDexHit = createSelector(
   selectEnemyState,
   selectHeroSpellMod,
-  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.dex) { return (8 + heroSpellMod - 1 - enemy.dex) / 20 } else return undefined }
+  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.dex !== undefined) { return (8 + heroSpellMod - 1 - enemy.dex) / 20 } else return undefined }
 );
 
 export const selectIntHit = createSelector(
   selectEnemyState,
   selectHeroSpellMod,
-  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.int) { return (8 + heroSpellMod - 1 - enemy.int) / 20 } else return undefined }
+  (enemy: Enemy, heroSpellMod: number): number | undefined => {
+    if (enemy.int !== undefined) {
+      return (8 + heroSpellMod - 1 - enemy.int) / 20
+    } else return undefined
+  }
 );
 
 export const selectStrHit = createSelector(
   selectEnemyState,
   selectHeroSpellMod,
-  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.str) { return (8 + heroSpellMod - 1 - enemy.str) / 20 } else return undefined }
+  (enemy: Enemy, heroSpellMod: number): number | undefined => {
+    if (enemy.str !== undefined) {
+      return (8 + heroSpellMod - 1 - enemy.str) / 20
+    } else return undefined
+  }
 );
 
 export const selectWisHit = createSelector(
   selectEnemyState,
   selectHeroSpellMod,
-  (enemy: Enemy, heroSpellMod: number): number | undefined => { if (enemy.wis) { return (8 + heroSpellMod - 1 - enemy.wis) / 20 } else return undefined }
+  (enemy: Enemy, heroSpellMod: number): number | undefined => {
+    if (enemy.wis !== undefined) {
+      return (8 + heroSpellMod - 1 - enemy.wis) / 20
+    } else return undefined
+  }
 );
 
 export const selectHit = createSelector(

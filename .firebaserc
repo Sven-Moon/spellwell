@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "spellwell-moon": {
+      "hosting": {
+        "spellwell": [
+          "spellwell-moon"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "spellwell-moon"
+  }
+}

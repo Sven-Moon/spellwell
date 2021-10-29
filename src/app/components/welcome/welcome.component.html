@@ -7,7 +7,120 @@
 </div> -->
 
 <accordion>
-  <accordion-group heading="What is this?" class="copy">
-    This app seeks to ...
+  <accordion-group heading="What is this?" class="copy accordion">
+    <p>
+      Dungeons & Dragons is a world of life and death based on dice rolls. As
+      any experienced adventurure can attest, missing your opponent by rolling a
+      13 instead of the needed 14 can have severe consequences because it's all
+      or nothing for damage and effect.
+    </p>
+    <p>
+      Your spells and attacks have varying "hit zones" on the die that range
+      anywhere from 20 - 2, all the way down to just 20 that varies with target
+      and what spell save mechanic is attached to the spell. If fate has decided
+      you're going to roll that 13, you're getting the 13. If you're casting a
+      spell that requires a 13+, you hit, but if you had instead cast a spell
+      with a 14+ requirement, you miss. Same roll, different oucomes. You dig?
+      Great.
+    </p>
+    <p>
+      What the average player doesn't have, though, is the knowledge of what
+      works better and worse for a given target. Well, in that reguard, this app
+      helps you to step beyond the average by indicating which spell save type
+      is the most likely to hit.
+    </p>
+    <p>
+      Do you see a lot of orcs? Input their stats to discover that they are most
+      vulnerable to spells requiring intelligence saving throws, followed by
+      spell attacks (requiring AC saving throws).
+    </p>
+    <p>
+      AND, if you put in your own character stats (level and spell modifier),
+      you get even better information: your % chance to hit and your potential
+      success die rolls. Does it seem like a particular monster is ALWAYS
+      dodging your dex spells? Well, if your hit percentage is 45%, you can
+      expect to miss more than half the time so you're not unlucky, you're just
+      a victim of poor decisions.
+    </p>
+    <accordion-group
+      heading="Wait. Put in their stats? Where do I get their stats?"
+      class="copy"
+    >
+      <p>
+        Go to <a href="https://5e.tools/bestiary.html">5e.tools</a> where you
+        can find the stats of every listed official creature known to the 5e D&D
+        universe.
+      </p>
+      <p>
+        Careful! Don't put in their stat, which ranges from 0 - 30. Instead, put
+        in their modifier for the stat, which is listed in parenthesis beside
+        the stat. So it'll look something like <code>11(+1)</code> or
+        <code>7(-2)</code>.
+      </p>
+      <accordion-group heading="Why do it that way?">
+        <p>
+          I do it this way because in-game it's easier for the user to determine
+          the modifier than the stat. Seeing a miss on roll of 12 versus a DC 13
+          spell save means <em>at most</em> a <code>+0</code> to the stat.
+          Determining the actual stat requires a second calculation and can only
+          resolve to a range, anyway (that is a <code>+1</code> could mean
+          either 11 or 12... but who cares about the difference?).
+        </p>
+      </accordion-group>
+      <accordion-group
+        heading="Isn't that a little ... um ... cheaty?"
+        class="copy"
+      >
+        <p>
+          You might see it that way. Hell, I the creator of this tool might see
+          it that way. As an alternative, you can use this app as a character
+          log of known attributes.
+        </p>
+        <p>
+          Throw a DC 15 con-save spell at them. DM rolls a 15. Does it stick?
+          Yeah? Great, now you know that the creature's constitution spell save
+          is +0 <em>or lower</em>.
+        </p>
+        <p>
+          A friend fires off a 12 DC dex-save spell. The DM rolls a 16 and
+          saves. Well, crap. You now know the creature has <em>at least</em> a
+          +4 dex save.
+        </p>
+        <p>
+          Note that if your DM only calls out hit or miss without allowing you
+          to see the dice result, it isn't possible to get this information.
+        </p>
+        <p>
+          There may still be some question as to how a character could possibly
+          know exactly how resistant to a spell type a monster is just by seeing
+          a hit or miss out on the battlefield. But I think you could reasonably
+          argue that you have some knowledge of your own and your companions'
+          skill at said spell, and thus seeing a hit or a miss would impart the
+          same kind of knowledge as a calculated hit/miss percentage imbues.
+          Imagine a creature that manages to avoid your friend's spell
+          <em>even though</em> they didn't appear to even notice the spell was
+          coming at them versus a creature that does a twisting backflip to
+          avoid the spell. The first probably has a -2 modifier, but happened to
+          roll 2 better than they needed, while the latter probably has a +2
+          <em>and</em> a +6 spell save.
+        </p>
+        <p>
+          And remember, just because you <em>know</em> that a spell has a 70%
+          chance to hit, doesn't mean you know the outcome prior to rolling the
+          die.
+        </p>
+      </accordion-group>
+    </accordion-group>
+    <accordion-group heading="What's going on with the red bar?" class="copy">
+      <p>
+        The red bar signifies at least 65% chance to hit. This is the
+        recommended chance to hit to be competitive in a 1-1 fight with a
+        monster. Say you were in a fight with a 50% chance to hit. Well, you'd
+        be hitting half the time and so would they. All other things equal,
+        you'd die as often as you lived, which isn't very good. That 15% boost
+        is enough to give you a better-than-random chance at killing your foes
+        before they kill you.
+      </p>
+    </accordion-group>
   </accordion-group>
 </accordion>

@@ -123,6 +123,16 @@
               "devServerTarget": "spellwell:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "spellwell:build:production",
+            "firebaseProject": "spellwell-moon",
+            "firebaseHostingSite": "spellwell-moon"
+          }
         }
       }
     }

@@ -1,14 +1,4 @@
-// --- HEADER ---
-$headerHt: 3rem;
-$headerMaxWidth: 1200px;
-
-$shadow: #777;
-$mp-pad: 3vw;
-$bg-color: #333;
-
-// copy
-$copy-bg: #555;
-$copy-padding: 0.5rem;
+@import '/src/sass/variables';
 
 .component-wrap {
   display: block;
@@ -69,6 +59,15 @@ $copy-padding: 0.5rem;
   margin-inline: 1rem;
   margin-bottom: 0.5rem;
 }
+
+.accordion {
+  color: white;
+  background-color: $copy-bg;
+  & p {
+    color: white;
+    // background: black;
+  }
+ }
 
 label {
   margin: 0 1rem 0.25rem;
