@@ -17,7 +17,7 @@ export const selectEnemyAc = createSelector(
 
 export const selectEnemyCon = createSelector(
   selectEnemyState,
-  (state): number | undefined => state.con
+  (state): number | null => state.con
 );
 
 export const selectEnemyCha = createSelector(

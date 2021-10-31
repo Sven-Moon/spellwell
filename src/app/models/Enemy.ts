@@ -1,10 +1,10 @@
 export interface Enemy {
   name: string
-  cha: number | undefined
-  con: number | undefined
-  int: number | undefined
-  str: number | undefined
-  dex: number | undefined
-  wis: number | undefined
-  ac: number | undefined
+  cha: number | null
+  con: number | null
+  int: number | null
+  str: number | null
+  dex: number | null
+  wis: number | null
+  ac: number | null
 }

@@ -10,13 +10,13 @@ export interface State extends Enemy {
 
 export const initialState: State = {
   name: '',
-  ac: undefined,
-  cha: undefined,
-  con: undefined,
-  int: undefined,
-  str: undefined,
-  dex: undefined,
-  wis: undefined,
+  ac: null,
+  cha: null,
+  con: null,
+  int: null,
+  str: null,
+  dex: null,
+  wis: null,
 };
 
 

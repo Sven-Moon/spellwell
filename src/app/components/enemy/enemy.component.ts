@@ -17,14 +17,14 @@ export class EnemyComponent implements OnInit {
   ) { }
 
   enemyForm = this.fb.group({
-    name: [''],
-    ac: [, Validators.min(0)],
-    str: [, Validators.min(-5)],
-    dex: [, Validators.min(-5)],
-    con: [, Validators.min(-5)],
-    int: [, Validators.min(-5)],
-    wis: [, Validators.min(-5)],
-    cha: [, Validators.min(-5)],
+    name: [null],
+    ac: [null, Validators.min(0)],
+    str: [null, Validators.min(-5)],
+    dex: [null, Validators.min(-5)],
+    con: [null, Validators.min(-5)],
+    int: [null, Validators.min(-5)],
+    wis: [null, Validators.min(-5)],
+    cha: [null, Validators.min(-5)],
   })
 
   ngOnInit(): void {
