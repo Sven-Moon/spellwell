@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app-root/app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,6 +19,7 @@ import { HitComponent } from './components/hit/hit.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -35,14 +36,15 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {}),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

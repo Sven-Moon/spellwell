@@ -3,6 +3,6 @@ export interface Hero {
   name: string
   spellMod: number
   level: number
-  // class: string
-  // subClass: string
+  class: string
+  subClass: string
 }

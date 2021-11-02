@@ -14,7 +14,9 @@
       <div *ngIf="!hitOrder[key].value" class="hit-chance">
         {{ key | uppercase }}: N/A
       </div>
-      <button type="button" href="spell-list">Spell List</button>
+      <button type="button" href="spell-list" routerLink="../spells" (click)="setFilters(key)">
+        Spell List
+      </button>
     </div>
   </ng-container>
 </div>

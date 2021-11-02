@@ -25,7 +25,9 @@ export class HeroComponent implements OnInit {
   heroForm = this.fb.group({
     name: [''],
     level: ['1', Validators.min(1)],
-    spellMod: ['0', Validators.min(1)]
+    spellMod: ['0', Validators.min(1)],
+    class: [''],
+    subclass: [''],
   })
 
   ngOnInit(): void {
@@ -36,6 +38,8 @@ export class HeroComponent implements OnInit {
       name: this.heroForm.controls.name.value,
       level: this.heroForm.controls.level.value,
       spellMod: this.heroForm.controls.spellMod.value,
+      class: this.heroForm.controls.class.value,
+      subClass: this.heroForm.controls.subClass.value
     }
     this.store.dispatch(updateHero({ data }))
   }
