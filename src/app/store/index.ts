@@ -15,6 +15,7 @@ export interface State {
   [fromHero.heroFeatureKey]: fromHero.State;
   [fromHit.hitFeatureKey]: fromHit.State;
   [fromSpells.spellsFeatureKey]: fromSpells.State;
+
 }
 
 export const reducers: ActionReducerMap<State> = {

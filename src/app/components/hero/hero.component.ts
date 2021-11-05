@@ -27,21 +27,22 @@ export class HeroComponent implements OnInit {
     level: ['1', Validators.min(1)],
     spellMod: ['0', Validators.min(1)],
     class: [''],
-    subclass: [''],
+    subClass: [''],
   })
 
   ngOnInit(): void {
   }
 
   public updateHero() {
-    let data = {
-      name: this.heroForm.controls.name.value,
-      level: this.heroForm.controls.level.value,
-      spellMod: this.heroForm.controls.spellMod.value,
-      class: this.heroForm.controls.class.value,
-      subClass: this.heroForm.controls.subClass.value
+    let f = this.heroForm.controls
+    let hero = {
+      name: f.name.value,
+      level: f.level.value,
+      spellMod: f.spellMod.value,
+      class: f.class.value,
+      subClass: f.subClass.value
     }
-    this.store.dispatch(updateHero({ data }))
+    this.store.dispatch(updateHero({ hero }))
   }
 
 }

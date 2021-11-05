@@ -24,11 +24,11 @@ export const reducer = createReducer(
   on(HeroActions.loadHeros, state => state),
   on(HeroActions.updateHero, (state, action) => ({
     ...state,
-    name: action.data.name,
-    level: action.data.level,
-    spellMod: action.data.spellMod,
-    class: action.data.class,
-    subclass: action.data.subClass
+    name: action.hero.name,
+    level: action.hero.level,
+    spellMod: action.hero.spellMod,
+    class: action.hero.class,
+    subClass: action.hero.subClass
   })),
 
 

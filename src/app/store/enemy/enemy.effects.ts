@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 // import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import { concatMap } from 'rxjs/operators';
+import { concatMap, tap } from 'rxjs/operators';
 import { Observable, EMPTY } from 'rxjs';
 
 import * as EnemyActions from './enemy.actions';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { updateFilterFromEnemy } from '../spells/spells.actions';
 
 
 @Injectable()
 export class EnemyEffects {
+
+  // updateFilterFromEnemy$ = createEffect(() => {
+  //   return this.actions$.pipe(
+  //     ofType(EnemyActions.updateEnemy),
+  //     tap(action => updateFilterFromEnemy({ enemy: action.dc_type }))
+  //   )
+  // })
 
 
   //   // loadEnemys$ = createEffect(() => {
@@ -21,6 +30,6 @@ export class EnemyEffects {
   //   });
 
 
-  //   // constructor(private actions$: Actions) {}
+    constructor(private actions$: Actions) {}
 
 }

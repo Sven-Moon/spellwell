@@ -5,6 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SpellsEffects } from '../../store/spells/spells.effects';
 import { ResultsComponent } from './results/results.component';
 import { FilterComponent } from './filter/filter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,9 @@ import { FilterComponent } from './filter/filter.component';
   ],
   imports: [
     CommonModule,
-    EffectsModule.forFeature([SpellsEffects])
+    EffectsModule.forFeature([SpellsEffects]),
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SpellsModule { }

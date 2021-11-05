@@ -1,5 +1,5 @@
 export const environment = {
-  firebase: {
+  firebaseConfig : {
     projectId: 'spellwell-moon',
     appId: '1:339623878302:web:096388ca8874ef4ebaa58f',
     storageBucket: 'spellwell-moon.appspot.com',

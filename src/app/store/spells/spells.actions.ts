@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Filters } from 'src/app/models/Filters';
+import { Hero } from 'src/app/models/Hero';
 import { Spell, Spells } from 'src/app/models/Spell';
 
 export const loadSpells = createAction(
@@ -39,3 +40,29 @@ export const setFilters = createAction(
  '[Spells] Set Filters',
  props<{ filters: Filters }>()
 );
+
+export const updateFilterFromHero = createAction(
+ '[Hero] UpdateFilterFrom',
+ props<{ hero: Hero }>()
+);
+
+export const updateFilterFromEnemy = createAction(
+ '[Hit] Update Filter From Enemy',
+ props<{ dc_type: string }>()
+);
+
+export const loadAllSpells = createAction(
+  '[Spell] Load All Spells (w/ Details)',
+  props<{ spellData: Spells }>()
+);
+
+export const updateClassFilter = createAction(
+  '[Spell] Update Class Filter',
+  props<{ classes: string[] }>()
+);
+
+export const updateSubclassFilter = createAction(
+  '[Spell] Update Subclass Filter',
+  props<{ subclasses: string[] }>()
+);
+

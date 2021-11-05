@@ -1,1 +1,22 @@
-<p>filter works!</p>
+<h3>Filters</h3>
+<form [formGroup]="form">
+  <h5>Class Options</h5>
+  <div class="flex-row">
+    <ng-container
+      *ngFor="let checkbox of classChecks; let i = index"
+      formArrayName="classOptions"
+    >
+      <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
+    </ng-container>
+  </div>
+  <!-- class -->
+  <div class="flex-row">
+    <ng-container
+      *ngFor="let checkbox of subclassChecks; let i = index"
+      formArrayName="subclassOptions"
+    >
+      <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
+    </ng-container>
+  </div>
+  <!-- subclass-->
+</form>

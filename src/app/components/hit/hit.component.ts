@@ -6,7 +6,7 @@ import { HitOrder } from 'src/app/models/SpellHit';
 import { initialState } from 'src/app/store/hero/hero.reducer';
 import { selectHero } from 'src/app/store/hero/hero.selectors';
 import { selectChaHit, selectHit, selectHitOrder } from 'src/app/store/hit/hit.selectors';
-import { setFilters } from 'src/app/store/spells/spells.actions';
+import { setFilters, updateFilterFromEnemy, updateFilterFromHero } from 'src/app/store/spells/spells.actions';
 
 @Component({
   selector: 'app-hit',
@@ -37,12 +37,8 @@ export class HitComponent implements OnInit {
   }
 
   public setFilters(stat: string) {
-    let filters: Filters = {
-      dc_type: stat,
-      class: this.hero.class,
-      subclass: this.hero.subClass
-    }
-    this.store.dispatch(setFilters({ filters }))
+    this.store.dispatch(updateFilterFromEnemy({ dc_type: stat }))
+    this.store.dispatch(updateFilterFromHero({ hero: this.hero }))
   }
 
 }

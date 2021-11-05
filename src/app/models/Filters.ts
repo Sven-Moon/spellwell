@@ -1,6 +1,6 @@
 export interface Filters {
-    dc_type: string,
-    class: string,
-    subclass: string,
+    dc_types: string[],
+    classes: string[],
+    subclasses: string[],
     // minLevel: number
-  }
+}

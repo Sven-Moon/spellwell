@@ -15,9 +15,9 @@ export interface State {
 export const initialState: State = {
   spells: [],
   filters: {
-    dc_type: '',
-    class: '',
-    subclass: '',
+    dc_types: [],
+    classes: [],
+    subclasses: [],
     // minLevel: null
   },
   error: null
@@ -36,14 +36,11 @@ export const reducer = createReducer(
   on(SpellsActions.loadSpellDetailsFailure,
     (state, action) => ({ ...state, error: action.error })),
   on(SpellsActions.addSpellDetail, (state,action) => {
-    var f
-    var found = state.spells.some((spell,index) => {
-      f = index
-      return spell.index == action.spell.index;
-    })
-    if (f) {
+    var currentIndex
+    state.spells.some((index) => currentIndex = index)
+    if (currentIndex) {
       let newSpells = [...state.spells, action.spell]
-      newSpells.splice(f,1)
+      newSpells.splice(currentIndex,1)
       return {
         ...state, spells: newSpells
     }
@@ -51,9 +48,34 @@ export const reducer = createReducer(
       return state
     }
   }),
-  on(SpellsActions.setFilter, (state,action) =>
-    ({...state, filters: action.filter})),
-  on(SpellsActions.setFilters, (state,action) =>
-    ({...state, filters: action.filters})),
+  on(SpellsActions.setFilters, (state,action) => ({
+    ...state, filters: action.filters
+  })),
+  on(SpellsActions.updateFilterFromHero, (state,action) => ({
+    ...state, filters: {
+      ...state.filters,
+      classes: [action.hero.class],
+      subclasses: [action.hero.subClass]
+    }
+  })),
+  on(SpellsActions.updateFilterFromEnemy, (state,action) => ({
+    ...state, filters: {
+      ...state.filters,
+      dc_types: [action.dc_type]
+    }
+  })),
+  on(SpellsActions.loadAllSpells, (state,action) => ({
+    ...state, spells: action.spellData
+  })),
+  on(SpellsActions.updateClassFilter, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, classes: action.classes
+    }
+  })),
+  on(SpellsActions.updateSubclassFilter, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, subclasses: action.subclasses
+    }
+  })),
 );
 

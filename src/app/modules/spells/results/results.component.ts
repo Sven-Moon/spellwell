@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Spells } from 'src/app/models/Spell';
+import { selectClassesSpells, selectFiltersResult } from 'src/app/store/spells/spells.selectors';
 
 @Component({
   selector: 'app-results',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
+  results: Spells
 
-  constructor() { }
+  constructor(
+    private store: Store
+  ) { }
 
   ngOnInit(): void {
+    this.store.select(selectClassesSpells)
+      .subscribe(result => this.results = result)
   }
 
 }
+

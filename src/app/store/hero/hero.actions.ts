@@ -3,7 +3,7 @@ import { Hero } from 'src/app/models/Hero';
 
 export const updateHero = createAction(
   '[Hero Component] Update Hero',
-  props<{ data: Hero }>()
+  props<{ hero: Hero }>()
 );
 
 export const loadHeros = createAction(
