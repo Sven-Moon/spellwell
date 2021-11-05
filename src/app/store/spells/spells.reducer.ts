@@ -67,15 +67,41 @@ export const reducer = createReducer(
   on(SpellsActions.loadAllSpells, (state,action) => ({
     ...state, spells: action.spellData
   })),
+
+  //#region  -------- CLASSES
   on(SpellsActions.updateClassFilter, (state, action) => ({
     ...state, filters: {
       ...state.filters, classes: action.classes
     }
   })),
+  on(SpellsActions.selectAllClasses, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, classes: action.allClasses
+    }
+  })),
+  on(SpellsActions.deselectAllClasses, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, classes: []
+    }
+  })),
+  //#endregion -------- classes
+
+  //#region  -------- SUBCLASSES
   on(SpellsActions.updateSubclassFilter, (state, action) => ({
     ...state, filters: {
       ...state.filters, subclasses: action.subclasses
     }
   })),
+  on(SpellsActions.selectAllSubclasses, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, subclasses: action.allSubclasses
+    }
+  })),
+  on(SpellsActions.deselectAllClasses, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, subclasses: []
+    }
+  })),
+  //#endregion -------- subclasses
 );
 

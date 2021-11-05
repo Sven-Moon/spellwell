@@ -1,6 +1,11 @@
 <h3>Filters</h3>
 <form [formGroup]="form">
-  <h5>Class Options</h5>
+  <div class="flex-row">
+    <h5>Class Options</h5>
+    Select:
+    <button type="button" (click)="selectAll('class')">All</button>
+    <button type="button" (click)="deselectAll('class')">None</button>
+  </div>
   <div class="flex-row">
     <ng-container
       *ngFor="let checkbox of classChecks; let i = index"
@@ -10,6 +15,12 @@
     </ng-container>
   </div>
   <!-- class -->
+  <div class="flex-row">
+    <h5>Subclass Options</h5>
+    Select:
+    <button type="button" (click)="selectAll('subclass')">All</button>
+    <button type="button" (click)="deselectAll('subclass')">None</button>
+  </div>
   <div class="flex-row">
     <ng-container
       *ngFor="let checkbox of subclassChecks; let i = index"

@@ -4,6 +4,11 @@
   <ul *ngFor="let result of results">
     <li>
       {{ result.name }}
+      <ng-container *ngIf="result.classes">
+        <ul *ngFor="let subclass of result.subclasses">
+          <li>{{ subclass.name }}</li>
+        </ul>
+      </ng-container>
     </li>
   </ul>
 </div>

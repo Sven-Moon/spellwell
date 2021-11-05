@@ -66,3 +66,20 @@ export const updateSubclassFilter = createAction(
   props<{ subclasses: string[] }>()
 );
 
+export const selectAllClasses = createAction(
+ '[Filter] Select All Classes',
+ props<{ allClasses: string[] }>()
+);
+
+export const selectAllSubclasses = createAction(
+ '[Filter] Select All Subclasses',
+ props<{ allSubclasses: string[] }>()
+);
+
+export const deselectAllClasses = createAction(
+ '[Filter] Deselect All Classes'
+);
+
+export const deselectAllSubclasses = createAction(
+ '[Filter] Deselect All Subclasses'
+);

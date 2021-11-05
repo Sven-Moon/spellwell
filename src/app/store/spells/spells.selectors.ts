@@ -26,15 +26,18 @@ export const selectClassesSpells = createSelector(
     return spells.filter((spell:Spell) =>{
       if (!spell.classes) {return null}
       return spell.classes.some((thisClass: ClassDD) =>
-        filters.classes.some(classInFilter =>
-          classInFilter.toLowerCase() === thisClass.index.toLowerCase()
-        )
+        filters.classes.some(classInFilter =>{
+          if (thisClass.name && classInFilter){
+            return thisClass.name === classInFilter
+          }
+          else return null
+        })
       )
     })
   }
 )
 
-export const selectSubClassesSpells = createSelector(
+export const selectSubclassesSpells = createSelector(
   selectSpells,
   selectFilters,
   (spells:Spells, filters:Filters):Spells => {
@@ -42,17 +45,20 @@ export const selectSubClassesSpells = createSelector(
     return spells.filter((spell:Spell) =>{
       if (!spell.subclasses) { return null }
       return spell.subclasses.some((subClass: SubclassDD) =>
-        filters.subclasses.some(subClassFilter =>
-          subClass.name.toLowerCase() === subClassFilter.toLowerCase())
+        filters.subclasses.some(subClassFilter =>{
+          if (subClass.name && subClassFilter){
+          return subClass.name.toLowerCase() === subClassFilter.toLowerCase()
+          } else return null
+        })
       )
     })
   }
 )
 
 export const selectClassTotal = createSelector(
-  selectClassesSpells, selectSubClassesSpells,
+  selectClassesSpells, selectSubclassesSpells,
   (spellsClass:Spells, spellSubClass:Spells):Spells => {
-    let result: Spells = spellsClass
+    let result: Spells = [...spellsClass]
     if (spellSubClass === []) { return spellsClass }
     spellSubClass.forEach(subSpell => {
       spellsClass.forEach((classSpell,index) => {
@@ -69,7 +75,7 @@ export const selectClassTotal = createSelector(
 )
 
 export const selectDcType = createSelector(
-  selectSubClassesSpells,
+  selectSubclassesSpells,
   selectFilters,
   (spells:Spells,filters:Filters):Spells =>
     spells.filter((spell:Spell) =>
@@ -81,7 +87,7 @@ export const selectDcType = createSelector(
 )
 
 export const selectFiltersResult = createSelector(
-  selectClassesSpells,
+  selectSubclassesSpells,
   (state: Spells):Spells => state
 );
 
