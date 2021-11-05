@@ -82,31 +82,34 @@ export class FilterComponent implements OnInit {
     this.initCheckboxSubscriptions()
   }
 
-  initCheckboxOptions(options: CheckChoices[],filterState:string[]) {
+  initCheckboxOptions(
+    options: CheckChoices[],
+    filterState:string[]
+  ): FormArray {
     return this.fb.array(
-      options.map(option =>  {
-        this.filters.classes.includes(option.value)
-        ? true : false
-      })
+      options.map(option =>
+        filterState.includes(option.value)
+          ? true : false
       )
+    )
+  }
 
-    }
+  initCheckboxForms(): void  {
+    this.form = this.fb.group({
+      classOptions: this.initCheckboxOptions(
+        this.classChecks, this.filters.classes
+      ),
+      subclassOptions: this.initCheckboxOptions(
+        this.subclassChecks, this.filters.subclasses
+        )
+    })
+  }
 
-    initCheckboxForms(): void  {
-      this.form = this.fb.group({
-        classOptions: this.initCheckboxOptions(
-          this.classChecks, this.filters.classes
-        ),
-        subclassOptions: this.initCheckboxOptions(
-          this.subclassChecks, this.filters.subclasses
-          )
-      })
-    }
-    initCheckboxSubscriptions() {
+  initCheckboxSubscriptions(): void {
     const classOptionsArray = this.form.controls.classOptions as FormArray;
     const subclassOptionsArray = this.form.controls.subclassOptions as FormArray;
 
-    this.classSubscription = classOptionsArray.valueChanges.subscribe(() => {
+    this.classSubscription = this.classFormArray.valueChanges.subscribe(() => {
       classOptionsArray.setValue(
         classOptionsArray.value.map((value, i) =>
           value ? this.classChecks[i].value : false
@@ -141,16 +144,10 @@ export class FilterComponent implements OnInit {
   selectAll(type: string) {
     switch (type) {
       case 'class':
-        this.classFormArray.setValue(
-          this.classFormArray.value
-          .map(_ =>true)
-        )
+        this.setAllAs(true,this.classFormArray)
         break;
-      case 'subclass':
-        this.subclassFormArray.setValue(
-          this.subclassFormArray.value
-          .map(_ =>true)
-        )
+        case 'subclass':
+        this.setAllAs(true,this.subclassFormArray)
         break;
       default:
         break;
@@ -160,18 +157,20 @@ export class FilterComponent implements OnInit {
   deselectAll(type: string) {
     switch (type) {
       case 'class':
-        this.store.dispatch(
-          spellsActions.deselectAllClasses()
-        )
+        this.setAllAs(false,this.classFormArray)
         break;
-      case 'subclass':
-        this.store.dispatch(
-          spellsActions.deselectAllSubclasses()
-        )
+        case 'subclass':
+        this.setAllAs(false,this.subclassFormArray)
         break;
       default:
         break;
     }
+  }
+
+  private setAllAs(val: boolean, array: FormArray) {
+    array.setValue(
+      array.value.map(_ => val)
+    )
   }
 
   get classFormArray() {

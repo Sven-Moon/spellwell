@@ -27,7 +27,7 @@ export class HeroComponent implements OnInit {
     level: ['1', Validators.min(1)],
     spellMod: ['0', Validators.min(1)],
     class: [''],
-    subClass: [''],
+    subclass: [''],
   })
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class HeroComponent implements OnInit {
       level: f.level.value,
       spellMod: f.spellMod.value,
       class: f.class.value,
-      subClass: f.subClass.value
+      subclass: f.subclass.value
     }
     this.store.dispatch(updateHero({ hero }))
   }

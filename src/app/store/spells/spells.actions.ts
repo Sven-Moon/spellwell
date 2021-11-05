@@ -42,7 +42,7 @@ export const setFilters = createAction(
 );
 
 export const updateFilterFromHero = createAction(
- '[Hero] UpdateFilterFrom',
+ '[Hero] Update Filter From Hero',
  props<{ hero: Hero }>()
 );
 

@@ -4,5 +4,5 @@ export interface Hero {
   spellMod: number
   level: number
   class: string
-  subClass: string
+  subclass: string
 }

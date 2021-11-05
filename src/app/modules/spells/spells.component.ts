@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Spell, Spells } from 'src/app/models/Spell';
 import { SpellsApiService } from 'src/app/services/spellsApi.service';
 import { loadAllSpells, loadSpells, updateClassFilter, updateSubclassFilter } from 'src/app/store/spells/spells.actions';
-import { selectClassTotal, selectFilters, selectSpells } from 'src/app/store/spells/spells.selectors';
+import { selectFilters, selectSpells } from 'src/app/store/spells/spells.selectors';
 import { Firestore, collectionData, collection, DocumentData, CollectionReference, docData, query, where } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {  doc, DocumentReference, getDoc, getDocs, setDoc } from "firebase/firestore";
@@ -19,17 +19,14 @@ import { Filters } from 'src/app/models/Filters';
 export class SpellsComponent implements OnInit {
   spells: Spells = []
   spells$: Observable<DocumentData[]>
-  spellsCol: Observable<Spells>
   data: Spell | undefined
   newSpell: Spell
   spellName:string = ''
-  dcTypeFilter$: BehaviorSubject<string | null>
   spellsRef: CollectionReference
   spellRef: DocumentReference
   filters: Filters
   q
   spellData: Spells
-  classFilter: Spells
 
   constructor(
     private store: Store,
@@ -50,8 +47,6 @@ export class SpellsComponent implements OnInit {
       .subscribe(filters => this.filters = filters)
     // this.spells$.subscribe(data => this.spellData = data)
     this.loadDbSpellsToStore()
-    this.store.select(selectClassTotal)
-    .subscribe(x => this.classFilter = x)
   }
 
   public async queryFirebaseForSomething(thing:string) {
@@ -59,7 +54,6 @@ export class SpellsComponent implements OnInit {
      * Hits the firestore database with the indicated query
      * Note that the current implementation instead
      */
-    console.log('queryForSomething');
     this.q = query(collection(this.firestore,'spells'),
       where("classes", "array-contains", {
         index: 'wizard',

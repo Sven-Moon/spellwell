@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { indexOf } from 'lodash';
 import { Filters } from 'src/app/models/Filters';
 import { Spell, Spells } from 'src/app/models/Spell';
+import { classList, subclassList } from 'src/app/services/data/lists';
 import * as SpellsActions from './spells.actions';
 
 export const spellsFeatureKey = 'spells';
@@ -16,8 +17,8 @@ export const initialState: State = {
   spells: [],
   filters: {
     dc_types: [],
-    classes: [],
-    subclasses: [],
+    classes: classList,
+    subclasses: subclassList,
     // minLevel: null
   },
   error: null
@@ -55,7 +56,7 @@ export const reducer = createReducer(
     ...state, filters: {
       ...state.filters,
       classes: [action.hero.class],
-      subclasses: [action.hero.subClass]
+      subclasses: [action.hero.subclass]
     }
   })),
   on(SpellsActions.updateFilterFromEnemy, (state,action) => ({

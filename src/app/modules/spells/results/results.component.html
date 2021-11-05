@@ -1,9 +1,10 @@
-<h1>RESULTS</h1>
 <div>
-  <h4>Class Filtered</h4>
   <ul *ngFor="let result of results">
     <li>
       {{ result.name }}
+      <ul *ngFor="let class of result.classes">
+        <li>{{ class.name }}</li>
+      </ul>
       <ng-container *ngIf="result.classes">
         <ul *ngFor="let subclass of result.subclasses">
           <li>{{ subclass.name }}</li>

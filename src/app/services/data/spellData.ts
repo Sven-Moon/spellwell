@@ -15866,7 +15866,7 @@ export const spellData = {
   "filters": {
     "dc_types": ["dex"],
     "classes": ["wizard"],
-    "subClasses": [""]
+    "subclasses": [""]
   },
   "error": null
 }

@@ -16,7 +16,7 @@ export class ResultsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.select(selectClassesSpells)
+    this.store.select(selectFiltersResult)
       .subscribe(result => this.results = result)
   }
 

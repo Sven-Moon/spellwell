@@ -14,7 +14,7 @@ export const initialState = {
   level: 1,
   spellMod: 0,
   class: '',
-  subClass: ''
+  subclass: ''
 };
 
 
@@ -28,7 +28,7 @@ export const reducer = createReducer(
     level: action.hero.level,
     spellMod: action.hero.spellMod,
     class: action.hero.class,
-    subClass: action.hero.subClass
+    subclass: action.hero.subclass
   })),
 
 
