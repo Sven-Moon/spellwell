@@ -2,6 +2,9 @@
   <ul *ngFor="let result of results">
     <li>
       {{ result.name }}
+      <ng-container *ngIf="result.dc">
+        - {{ result.dc.dc_type.name }}</ng-container
+      >
       <ul *ngFor="let class of result.classes">
         <li>{{ class.name }}</li>
       </ul>

@@ -4,12 +4,13 @@ import { ClassDD, Spell, Spells, SubclassDD } from 'src/app/models/Spell';
 import { classList } from 'src/app/services/data/lists';
 import * as fromSpells from './spells.reducer';
 import * as _ from 'lodash'
+import { dc_typesList } from 'src/app/services/data/dc_types';
 
 export const selectSpellsState = createFeatureSelector<fromSpells.State>(
   fromSpells.spellsFeatureKey
 );
 
-export const selectSpells = createSelector(
+export const selectAllSpells = createSelector(
   selectSpellsState,
   (state):Spells => state.spells
 )
@@ -20,7 +21,7 @@ export const selectFilters = createSelector(
 )
 
 export const selectClassesSpells = createSelector(
-  selectSpells,
+  selectAllSpells,
   selectFilters,
   (spells:Spells,filters:Filters):Spells => {
     // SHORTCUT: don't process if no positive filters
@@ -45,7 +46,7 @@ export const selectClassesSpells = createSelector(
 )
 
 export const selectSubclassesSpells = createSelector(
-  selectSpells,
+  selectAllSpells,
   selectFilters,
   (spells:Spells, filters:Filters):Spells => {
     // SHORTCUT: don't process if no positive filters
@@ -68,32 +69,69 @@ export const selectSubclassesSpells = createSelector(
 )
 
 export const selectClassCombined = createSelector(
-  selectSpells,
+  selectAllSpells,
   selectClassesSpells,
   selectSubclassesSpells,
   (allSpells:Spells,spellsClass:Spells, spellsSubClass:Spells):Spells => {
-    return mergeSpellResults(spellsClass, spellsSubClass, allSpells)
+    return orSpellResults(spellsClass, spellsSubClass, allSpells)
   }
 )
 
+export const selectNoDcSpells = createSelector(
+  selectAllSpells,
+  (spells:Spells) => spells.filter(spell => !spell.dc)
+)
+
+export const selectDcSpells = createSelector(
+  selectAllSpells,
+  (spells:Spells) => spells.filter(spell => spell.dc)
+)
+
 export const selectDcType = createSelector(
-  selectSubclassesSpells,
+  selectAllSpells,
+  selectDcSpells,
+  selectNoDcSpells,
   selectFilters,
-  (spells:Spells,filters:Filters):Spells =>
-    spells.filter((spell:Spell) =>
-      filters.dc_types.some(dc_type =>
-        filters.dc_types.some(dc_typeInFilter =>
-          dc_type === dc_typeInFilter)
+  (allSpells:Spells, dcSpells:Spells, noDcSpells:Spells, filters:Filters):Spells =>{
+    // SHORTCUTS
+    if (filters.dc_types.length === dc_typesList.length) {
+      return allSpells
+    }
+    if (filters.dc_types.length === 0) {
+      return []
+    }
+
+    let results:Spells = []
+
+    results = dcSpells.filter((spell:Spell) =>{
+      return filters.dc_types.some(dc_typeInFilter =>
+        spell.dc.dc_type.index === dc_typeInFilter
       )
-    )
+    })
+    if (filters.dc_types.includes('none')) {
+      console.log('none included');
+
+      results = orSpellResults(results,noDcSpells,allSpells)
+    }
+
+    return results
+  }
+)
+
+export const selectDcTypeAndClassOrSubclass = createSelector(
+  selectClassCombined,
+  selectDcType,
+  selectAllSpells,
+  (classSpells,dcSpells,allSpells) =>
+   andSpellResults(classSpells,dcSpells,allSpells )
 )
 
 export const selectFiltersResult = createSelector(
-  selectClassCombined,
+  selectDcTypeAndClassOrSubclass,
   (state: Spells):Spells => state
 );
 
-function mergeSpellResults(
+function orSpellResults(
     arr1: Spells, arr2: Spells, allSpells: Spells
   ): Spells {
     // SHORTCUTS
@@ -102,34 +140,25 @@ function mergeSpellResults(
     }
     if (arr1.length === 0) { return arr2 }
 
+    var merged = _.merge(_.keyBy(arr1, 'index'), _.keyBy(arr2, 'index'))
+    var result = _.values(merged)
+    var orderedResult = _.orderBy(result, 'index')
 
-    let result: Spells = [...arr1]
-    let resultIndex: number = 0
-    let arr2Index: number = 0
+    return orderedResult
+}
 
-    /** Depends on ordered spell lists */
-    while (arr2Index < arr2.length) {
-    // if class spells runs out before subclass spells does,
-    // attach the remainder to the list and be done
-        if (!result[resultIndex]) {
-          result.push(arr2[arr2Index])
-          arr2Index++
-        }
-    // * if subclass spell is lower than result(class)Spell,
-    //  go to next result spell
-        if (arr1[resultIndex] > arr2[arr2Index]) {
-          resultIndex++
-        }
-    // * if they are equal, go on to next for both (no result change)
-        if (arr1[resultIndex] === arr2[arr2Index]) {
-          arr2Index++
-        }
-    // otherwise it's greater than, so the spell must be spliced in
-    // and the indicies incremented
-        result.splice(resultIndex,0,arr2[arr2Index])
-        resultIndex++
-        arr2Index++
+function andSpellResults(arr1:Spells, arr2: Spells, allSpells:Spells):Spells {
+    // SHORTCUTS
+    if (arr1 === [] || arr1 === []) {
+      return []
     }
-    return result
+    if (arr1.length === allSpells.length && arr1.length === allSpells.length)
+    {
+       return allSpells
+    }
+
+    return arr1.filter(a1Spell =>
+      arr2.some(a2Spell => a1Spell.index === a2Spell.index)
+    )
 }
 

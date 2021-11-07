@@ -30,4 +30,19 @@
     </ng-container>
   </div>
   <!-- subclass-->
+  <div class="flex-row">
+    <h5>Spell Save (DC) Options</h5>
+    Select:
+    <button type="button" (click)="selectAll('dc_type')">All</button>
+    <button type="button" (click)="deselectAll('dc_type')">None</button>
+  </div>
+  <div class="flex-row">
+    <ng-container
+      *ngFor="let checkbox of dcTypeChecks; let i = index"
+      formArrayName="dcTypeOptions"
+    >
+      <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
+    </ng-container>
+  </div>
+  <!-- subclass-->
 </form>

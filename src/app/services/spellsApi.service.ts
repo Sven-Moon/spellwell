@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { Spell, Spells } from '../models/Spell';
 import { addSpellDetail, loadSpellDetailsSuccess } from '../store/spells/spells.actions';
-import { selectSpells } from '../store/spells/spells.selectors';
+import { selectAllSpells } from '../store/spells/spells.selectors';
 import { spellData } from './data/spellData';
 
 @Injectable({
@@ -37,7 +37,7 @@ export class SpellsApiService {
 
   public getAllSpellDetails(): void {
     let allSpells: Spells = []
-    this.store.select(selectSpells)
+    this.store.select(selectAllSpells)
     .subscribe(spells => allSpells = Object.assign([], spells))
 
     allSpells.forEach(spell => {

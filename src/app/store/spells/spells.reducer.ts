@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { indexOf } from 'lodash';
 import { Filters } from 'src/app/models/Filters';
 import { Spell, Spells } from 'src/app/models/Spell';
+import { dc_typesList } from 'src/app/services/data/dc_types';
 import { classList, subclassList } from 'src/app/services/data/lists';
 import * as SpellsActions from './spells.actions';
 
@@ -16,7 +17,7 @@ export interface State {
 export const initialState: State = {
   spells: [],
   filters: {
-    dc_types: [],
+    dc_types: dc_typesList,
     classes: classList,
     subclasses: subclassList,
     // minLevel: null
@@ -104,5 +105,24 @@ export const reducer = createReducer(
     }
   })),
   //#endregion -------- subclasses
+
+
+  //#region  -------- DC_TYPES
+  on(SpellsActions.updateDcTypeFilter, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, dc_types: action.dcTypes
+    }
+  })),
+  on(SpellsActions.selectAllDcTypes, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, dc_types: action.allDcTypes
+    }
+  })),
+  on(SpellsActions.deselectAllDcTypes, (state, action) => ({
+    ...state, filters: {
+      ...state.filters, dc_types: []
+    }
+  })),
+  //#endregion -------- dc_types
 );
 

@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Spell, Spells } from 'src/app/models/Spell';
 import { SpellsApiService } from 'src/app/services/spellsApi.service';
 import { loadAllSpells, loadSpells, updateClassFilter, updateSubclassFilter } from 'src/app/store/spells/spells.actions';
-import { selectFilters, selectSpells } from 'src/app/store/spells/spells.selectors';
+import { selectFilters, selectAllSpells } from 'src/app/store/spells/spells.selectors';
 import { Firestore, collectionData, collection, DocumentData, CollectionReference, docData, query, where } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {  doc, DocumentReference, getDoc, getDocs, setDoc } from "firebase/firestore";
@@ -38,7 +38,7 @@ export class SpellsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.select(selectSpells)
+    this.store.select(selectAllSpells)
       .subscribe(allSpells => this.spells = allSpells)
     // if (this.spells.length === 0) {
     //   this.store.dispatch(loadSpells())

@@ -5,5 +5,6 @@ export const dc_typesList = [
   'dex',
   'int',
   'str',
-  'wis'
+  'wis',
+  'None'
 ]

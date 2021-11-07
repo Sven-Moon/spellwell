@@ -56,30 +56,45 @@ export const loadAllSpells = createAction(
   props<{ spellData: Spells }>()
 );
 
+//#region  -------------- CLASSES
 export const updateClassFilter = createAction(
   '[Spell] Update Class Filter',
   props<{ classes: string[] }>()
 );
+export const selectAllClasses = createAction(
+  '[Filter] Select All Classes',
+  props<{ allClasses: string[] }>()
+);
+export const deselectAllClasses = createAction(
+  '[Filter] Deselect All Classes'
+);
+//#endregion ------------ classes
 
+//#region  -------------- SUBCLASSES
 export const updateSubclassFilter = createAction(
   '[Spell] Update Subclass Filter',
   props<{ subclasses: string[] }>()
 );
-
-export const selectAllClasses = createAction(
- '[Filter] Select All Classes',
- props<{ allClasses: string[] }>()
-);
-
 export const selectAllSubclasses = createAction(
  '[Filter] Select All Subclasses',
  props<{ allSubclasses: string[] }>()
 );
-
-export const deselectAllClasses = createAction(
- '[Filter] Deselect All Classes'
-);
-
 export const deselectAllSubclasses = createAction(
  '[Filter] Deselect All Subclasses'
 );
+//#endregion ------------ subclasses
+
+
+//#region  -------------- DC_TYPES
+export const updateDcTypeFilter = createAction(
+  '[Spell] Update DC Type Filter',
+  props<{ dcTypes: string[] }>()
+);
+export const selectAllDcTypes = createAction(
+ '[Filter] Select All DC Types',
+ props<{ allDcTypes: string[] }>()
+);
+export const deselectAllDcTypes = createAction(
+ '[Filter] Deselect All DC Types'
+);
+//#endregion ------------ dc_types
