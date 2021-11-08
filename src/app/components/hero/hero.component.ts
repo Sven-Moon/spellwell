@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Hero } from 'src/app/models/Hero';
 import { updateHero } from 'src/app/store/hero/hero.actions';
 import { selectHero } from 'src/app/store/hero/hero.selectors';
-
+import * as lists from 'src/app/services/data/lists'
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
@@ -13,6 +13,8 @@ import { selectHero } from 'src/app/store/hero/hero.selectors';
 })
 export class HeroComponent implements OnInit {
   hero$: Observable<Hero>
+  heroClasses = lists.heroClasses
+  heroSubclasses = lists.heroSubclasses
 
 
   constructor(

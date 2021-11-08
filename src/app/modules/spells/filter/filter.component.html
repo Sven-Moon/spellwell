@@ -8,7 +8,7 @@
   </div>
   <div class="flex-row">
     <ng-container
-      *ngFor="let checkbox of classChecks; let i = index"
+      *ngFor="let checkbox of heroClasses; let i = index"
       formArrayName="classOptions"
     >
       <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
@@ -23,7 +23,7 @@
   </div>
   <div class="flex-row">
     <ng-container
-      *ngFor="let checkbox of subclassChecks; let i = index"
+      *ngFor="let checkbox of heroSubclasses; let i = index"
       formArrayName="subclassOptions"
     >
       <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
@@ -38,7 +38,7 @@
   </div>
   <div class="flex-row">
     <ng-container
-      *ngFor="let checkbox of dcTypeChecks; let i = index"
+      *ngFor="let checkbox of spellDcTypes; let i = index"
       formArrayName="dcTypeOptions"
     >
       <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}

@@ -10,6 +10,7 @@ import { Filters } from 'src/app/models/Filters';
 import { selectAllClasses, selectAllSubclasses, updateClassFilter, updateDcTypeFilter, updateSubclassFilter } from 'src/app/store/spells/spells.actions';
 import { selectFilters } from 'src/app/store/spells/spells.selectors';
 import * as spellsActions from 'src/app/store/spells/spells.actions';
+import * as lists from 'src/app/services/data/lists'
 
   interface CheckChoices {
     title: string,
@@ -37,51 +38,23 @@ export class FilterComponent implements OnInit {
   subclassOptionsArray: FormArray;
 
 
-  public classChecks: Array<CheckChoices> = [
-    {title: 'Artificer', value: 'artificer'},
-    {title: 'Barbarian', value: 'barbarian'},
-    {title: 'Bard', value: 'bard'},
-    {title: 'Cleric', value: 'cleric'},
-    {title: 'Druid', value: 'druid'},
-    {title: 'Fighter', value: 'fighter'},
-    {title: 'Monk', value: 'monk'},
-    {title: 'Paladin', value: 'paladin'},
-    {title: 'Ranger', value: 'ranger'},
-    {title: 'Rogue', value: 'rogue'},
-    {title: 'Sorcerer', value: 'sorcerer'},
-    {title: 'Warlock', value: 'warlock'},
-    {title: 'Wizard', value: 'wizard'},
-  ]
+  // TODO get from store
+  heroClasses = lists.heroClasses
+  heroSubclasses = lists.heroSubclasses
+  spellDcTypes = lists.spellDcTypes
 
-  public subclassChecks: Array<CheckChoices> = [
-    {title: 'Land', value: 'land'},
-    {title: 'Lore', value: 'lore'},
-    {title: 'Fiend', value: 'fiend'},
-    {title: 'Devotion', value: 'devotion'},
-    {title: 'Life', value: 'life'},
-  ]
-  public dcTypeChecks: Array<CheckChoices> = [
-    {title: 'AC', value: 'ac'},
-    {title: 'Cha', value: 'cha'},
-    {title: 'Con', value: 'con'},
-    {title: 'Dex', value: 'dex'},
-    {title: 'Int', value: 'int'},
-    {title: 'Str', value: 'str'},
-    {title: 'Wis', value: 'wis'},
-    {title: 'None', value: 'none'},
-  ]
   checkboxFormGroups: CheckboxGroup[] = [
     {
       name: 'classChecks',
-      values: this.classChecks
+      values: this.heroClasses
     },
     {
       name: 'subclassChecks',
-      values: this.subclassChecks
+      values: this.heroSubclasses
     },
     {
       name: 'dcTypeChecks',
-      values: this.dcTypeChecks
+      values: this.spellDcTypes
     },
   ]
 
@@ -112,13 +85,13 @@ export class FilterComponent implements OnInit {
   initCheckboxForms(): void  {
     this.form = this.fb.group({
       classOptions: this.initCheckboxOptions(
-        this.classChecks, this.filters.classes
+        this.heroClasses, this.filters.classes
       ),
       subclassOptions: this.initCheckboxOptions(
-        this.subclassChecks, this.filters.subclasses
+        this.heroSubclasses, this.filters.subclasses
       ),
       dcTypeOptions: this.initCheckboxOptions(
-        this.dcTypeChecks, this.filters.dc_types
+        this.spellDcTypes, this.filters.dc_types
       ),
     })
   }
@@ -127,7 +100,7 @@ export class FilterComponent implements OnInit {
     this.classSubscription = this.classFormArray.valueChanges.subscribe(() => {
       this.classFormArray.setValue(
         this.classFormArray.value.map((value, i) =>
-          value ? this.classChecks[i].value : false
+          value ? this.heroClasses[i].value : false
         ), { emitEvent: false }
       );
       let classes = this.classFormArray.value.filter(value => !!value)
@@ -142,7 +115,7 @@ export class FilterComponent implements OnInit {
         // truthy values map to the value in array
         // [false, thing1, thing2, false]
         this.subclassFormArray.value.map((value, i) =>
-          value ? this.subclassChecks[i].value : false
+          value ? this.heroSubclasses[i].value : false
         ), { emitEvent: false }
       );
       // remove falsy values from the array
@@ -154,7 +127,7 @@ export class FilterComponent implements OnInit {
     .subscribe(() => {
       this.dcTypeFormArray.setValue(
         this.dcTypeFormArray.value.map((value, i) =>
-          value ? this.dcTypeChecks[i].value : false
+          value ? this.spellDcTypes[i].value : false
         ), { emitEvent: false }
       );
       let dcTypes = this.dcTypeFormArray.value.filter(value => !!value)

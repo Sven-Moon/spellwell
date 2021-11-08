@@ -19,4 +19,5 @@
   height: calc(100% - #{$headerHt});
   min-height: calc(100vh - #{$headerHt});
   margin-inline: auto;
+  box-sizing: border-box;
 }

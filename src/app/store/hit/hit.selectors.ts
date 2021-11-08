@@ -137,16 +137,15 @@ export const selectHitOrder = createSelector(
       let hitOrder: HitOrder = {}
       Object.keys(hit).forEach(el => {
 
-
         if ( hit[el].value === null) {
           hitOrder[el] = {
             value: null,
             order: null
           }
         } else {
-          hitOrder[el] ={
-            value: +hit[el],
-            order: +hit[el]*20
+          hitOrder[el] = {
+            value: +hit[el].value,
+            order: +hit[el].value*20
           }
         }
       });

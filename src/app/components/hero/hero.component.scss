@@ -18,16 +18,76 @@ div {
   align-items: center;
 }
 
-input > .number {
-  max-width: 4rem;
-  margin-inline: 1.125%;
+.control-group input.form-control {
+  margin-right: 1rem;
 }
 
-.hero-wrap {
-  grid-template:
-    [] title hero-img 3rem []
-    [] name name 3rem []
-    [] class class 3rem []
-    [] subclass subclass 3rem []
-    / 1fr 1fr 1fr;
+.form-control {
+  margin-inline: 0;
+}
+
+.mods-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.frame {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  background-color: #777;
+  padding: .5rem;
+  margin-inline: .5rem;
+  box-sizing: border-box;
+}
+
+.mod-control-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items:flex-start;
+}
+
+
+.mod-control-group label {
+  margin-inline: 0;
+}
+
+.mod-control-group input {
+  margin-right: 0;
+}
+
+
+@media only screen and (min-width: 650px) {
+  .mods-container {
+    flex-direction: row;
+  }
+
+  .frame {
+    flex-flow: column nowrap;
+    margin: 0 .5rem;
+  }
+}
+
+@media only screen and (min-width: 350px) {
+  .mod-control-group {
+    flex-direction: row;
+    align-items: center;
+  }
+  .mod-control-group label {
+    width: 30%;
+  }
+  .number.mod-control-group label,input,select {
+    width: 50%
+  }
+  .mod-control-group input {
+    width: 70%;
+  }
+  .mod-control-group select {
+    width: 70%;
+
+  }
 }

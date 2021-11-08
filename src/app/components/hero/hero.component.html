@@ -6,7 +6,7 @@
 </div>
 <!-- <ng-container *ngIf="hero$ |async as hero"> -->
 <form [formGroup]="heroForm">
-  <div class="form-group">
+  <div class="control-group">
     <label for="name">Name</label>
     <input
       type="text"
@@ -15,54 +15,58 @@
       (blur)="updateHero()"
     />
   </div>
-  <div class="row">
-    <div class="level form-group number col-3">
-      <label for="level">Level</label>
-      <input
-        type="number"
-        formControlName="level"
-        class="form-control"
-        (change)="updateHero()"
-      />
+  <div class="mods-container">
+    <div class="frame">
+      <div class="mod-control-group number">
+        <label for="level">Level</label>
+        <input
+          type="number"
+          formControlName="level"
+          class="form-control"
+          (change)="updateHero()"
+        />
+      </div>
+      <!-- level -->
+      <div class="mod-control-group number">
+        <label for="spellMod">Spell Modifier</label>
+        <input
+          type="number"
+          formControlName="spellMod"
+          class="form-control"
+          (change)="updateHero()"
+        />
+      </div>
+      <!-- spell mod -->
     </div>
-    <div class="form-group number col-3">
-      <label for="spellMod">Spell Modifier</label>
-      <input
-        type="number"
-        formControlName="spellMod"
-        class="form-control"
-        (change)="updateHero()"
-      />
+    <!-- frame 1 -->
+
+    <div class="frame">
+      <div class="mod-control-group">
+        <label for="class" class="">Class</label>
+        <select formControlName="class" class="form-control">
+          <option value="null" selected></option>
+          <option *ngFor="let class of heroClasses" [value]="class.value">
+            {{ class.title }}
+          </option>
+        </select>
+      </div>
+      <!-- class -->
+      <div class="mod-control-group">
+        <label for="subclass" class="">Subclass</label>
+        <select formControlName="subclass" class="form-control">
+          <option value="null" selected></option>
+          <option
+            *ngFor="let subclass of heroSubclasses"
+            [value]="subclass.value"
+          >
+            {{ subclass.title }}
+          </option>
+        </select>
+      </div>
     </div>
-    <div class="form-group col-6">
-      <label for="class">Class</label>
-      <input
-        type="text"
-        formControlName="class"
-        class="form-control"
-        (change)="updateHero()"
-      />
-    </div>
-    <div class="form-group col-6">
-      <label for="subclass">subclass</label>
-      <input
-        type="text"
-        formControlName="subclass"
-        class="form-control"
-        (change)="updateHero()"
-      />
-    </div>
+    <!-- subclass -->
+    <!-- frame 2-->
   </div>
+  <!-- mods-container-->
 </form>
 <!-- </ng-container> -->
-
-<!-- Phase 2: Add Class & subclass to direct to available spells-->
-
-<!-- <div class="form-group">
-    <label for="class">Class</label>
-    <input type="text" name="class" id="" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="subclass">subclass</label>
-    <input type="text" name="subclass" id="" class="form-control">
-  </div> -->
