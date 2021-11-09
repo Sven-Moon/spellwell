@@ -17,6 +17,7 @@ export class HitComponent implements OnInit {
   hitOrder: HitOrder = {}
   statIndex = ["ac", "cha", "con", "dex", "int", "str", "wis"]
   hero: Hero = initialState
+  showInputInstructions: boolean = true
 
   constructor(
     private store: Store
@@ -30,8 +31,17 @@ export class HitComponent implements OnInit {
    * value for engagements.
    */
   ngOnInit(): void {
-    this.store.select(selectHitOrder).subscribe(
-      hitOrder => this.hitOrder = hitOrder)
+    this.store.select(selectHitOrder).subscribe(hitOrder => {
+      this.hitOrder = hitOrder
+      for (const key in hitOrder) {
+      if (Object.prototype.hasOwnProperty.call(hitOrder, key)) {
+        if (hitOrder[key].value !== null) {
+          this.showInputInstructions = false
+          return
+        }
+      }
+    }
+    })
     this.store.select(selectHero).subscribe(
       hero => this.hero = hero)
   }
@@ -45,5 +55,6 @@ export class HitComponent implements OnInit {
       this.store.dispatch(updateSubclassFilter({ subclasses: [this.hero.subclass] }))
     }
   }
+
 
 }

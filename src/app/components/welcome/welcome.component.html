@@ -10,18 +10,18 @@
   <accordion-group heading="What is this?" class="copy accordion">
     <p>
       Dungeons & Dragons is a world of life and death based on dice rolls. As
-      any experienced adventurure can attest, missing your opponent by rolling a
+      any experienced adventurer can attest, missing your opponent by rolling a
       13 instead of the needed 14 can have severe consequences because it's all
       or nothing for damage and effect.
     </p>
     <p>
       Your spells and attacks have varying "hit zones" on the die that range
-      anywhere from 20 - 2, all the way down to just 20 that varies with target
-      and what spell save mechanic is attached to the spell. If fate has decided
-      you're going to roll that 13, you're getting the 13. If you're casting a
-      spell that requires a 13+, you hit, but if you had instead cast a spell
-      with a 14+ requirement, you miss. Same roll, different oucomes. You dig?
-      Great.
+      anywhere from 20 - 2 (19 hit possibilities), all the way down to just 20
+      (1 hit possiblity) that varies with your character spell modifier and your
+      target's saving throw modifier. If fate has decided you're going to roll
+      that 13, you're getting the 13. If you're casting a spell that requires a
+      13 or better, you hit, but if you had instead cast a spell with a 14+
+      requirement, you miss. Same roll, different oucomes. You dig? Great.
     </p>
     <p>
       What the average player doesn't have, though, is the knowledge of what
@@ -30,9 +30,9 @@
       is the most likely to hit.
     </p>
     <p>
-      Do you see a lot of orcs? Input their stats to discover that they are most
-      vulnerable to spells requiring intelligence saving throws, followed by
-      spell attacks (requiring AC saving throws).
+      Do you see a lot of orcs? Input their saving throw modifiers to discover
+      that they are most vulnerable to spells requiring intelligence saving
+      throws, followed by spell attacks (requiring AC saving throws).
     </p>
     <p>
       AND, if you put in your own character stats (level and spell modifier),
@@ -43,28 +43,39 @@
       a victim of poor decisions.
     </p>
     <accordion-group
-      heading="Wait. Put in their stats? Where do I get their stats?"
+      heading="Wait. Put in their saving throw modifiers? Where do I get those?"
       class="copy"
     >
       <p>
         Go to <a href="https://5e.tools/bestiary.html">5e.tools</a> where you
-        can find the stats of every listed official creature known to the 5e D&D
-        universe.
+        can find the saving throw modifiers of every listed official creature
+        known to the 5e D&D universe.
       </p>
       <p>
-        Careful! Don't put in their stat, which ranges from 0 - 30. Instead, put
-        in their modifier for the stat, which is listed in parenthesis beside
-        the stat. So it'll look something like <code>11(+1)</code> or
-        <code>7(-2)</code>.
+        <b>Careful!</b> <u>Don't</u> put in their base stat, which ranges from 0
+        - 30. Instead, put in their modifier for the stat, which is listed in
+        parenthesis beside the stat. So it'll look something like
+        <span class="stat-base">11</span><span class="stat-save">(+1)</span> or
+        <span class="stat-base">7</span><span class="stat-save">(-2)</span>. In
+        these cases you'd put in the <span class="stat-save">+1</span> or
+        <span class="stat-save">-2</span>, respectively.
       </p>
-      <accordion-group heading="Why do it that way?">
+      <accordion-group
+        heading="Why do it that way? (Warning, lots of unexplained numbers!)"
+      >
         <p>
           I do it this way because in-game it's easier for the user to determine
           the modifier than the stat. Seeing a miss on roll of 12 versus a DC 13
-          spell save means <em>at most</em> a <code>+0</code> to the stat.
-          Determining the actual stat requires a second calculation and can only
-          resolve to a range, anyway (that is a <code>+1</code> could mean
-          either 11 or 12... but who cares about the difference?).
+          spell save means <em>at most</em> a
+          <span class="stat-save">+0</span> to the stat. Determining the actual
+          stat requires a second calculation and can only resolve to a range,
+          anyway (that is a <span class="stat-save">+1</span> could mean either
+          11 or 12... but who cares about the difference?).
+        </p>
+        <p>
+          A future feature will be to add a tool to help the player determine
+          what the monster saving throw is since this can be rather confusing,
+          especially as you play real-time.
         </p>
       </accordion-group>
       <accordion-group
@@ -102,7 +113,8 @@
           coming at them versus a creature that does a twisting backflip to
           avoid the spell. The first probably has a -2 modifier, but happened to
           roll 2 better than they needed, while the latter probably has a +2
-          <em>and</em> a +6 spell save.
+          <em>and</em> a +6 for that saving throw. This would factor into your
+          knowledge of that creature's spell resistance.
         </p>
         <p>
           And remember, just because you <em>know</em> that a spell has a 70%
@@ -119,7 +131,13 @@
         be hitting half the time and so would they. All other things equal,
         you'd die as often as you lived, which isn't very good. That 15% boost
         is enough to give you a better-than-random chance at killing your foes
-        before they kill you.
+        before they kill you. There's a source for this on
+        <a href="https://rpgbot.net/">RPGBOT</a> (an amazing D&D resource) that
+        talks about
+        <a href="https://rpgbot.net/dnd5/characters/fundamental_math/"
+          >the fundamental math of character optimization</a
+        >, which should be what you're here to do, and is probably the
+        inspiration for this application.
       </p>
     </accordion-group>
   </accordion-group>

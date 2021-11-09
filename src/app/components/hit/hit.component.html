@@ -1,6 +1,13 @@
 <div class="hit-wrap">
   <h2 style="order: 100">Chance to Hit Enemy</h2>
   <hr style="order: 13" class="baseline-bar" />
+  <div *ngIf="showInputInstructions" class="spellmod row" style="order: 110">
+    <em
+      >Input enemy saving throw modifiers (stat bonuses) to get hit chance for
+      spells utilizing that stat as a saving throw. Include saving throw
+      bonuses.</em
+    >
+  </div>
   <ng-container *ngFor="let key of statIndex">
     <div
       class="spellmod row"

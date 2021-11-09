@@ -1,1 +1,10 @@
-@import 'src/styles.scss'
+@import 'src/styles.scss';
+
+.stat-save {
+  font-family: monospace;
+  color: rgb(68, 190, 255);
+}
+.stat-base {
+  font-family: monospace;
+  color: rgb(225, 114, 255);
+}
