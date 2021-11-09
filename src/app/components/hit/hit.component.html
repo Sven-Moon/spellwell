@@ -1,4 +1,5 @@
 <div class="hit-wrap">
+  <h2 style="order: 100">Chance to Hit Enemy</h2>
   <hr style="order: 13" class="baseline-bar" />
   <ng-container *ngFor="let key of statIndex">
     <div
@@ -14,7 +15,12 @@
       <div *ngIf="!hitOrder[key].value" class="hit-chance">
         {{ key | uppercase }}: N/A
       </div>
-      <button type="button" href="spell-list" routerLink="../spells" (click)="setFilters(key)">
+      <button
+        type="button"
+        href="spell-list"
+        routerLink="../spells"
+        (click)="setFilters(key)"
+      >
         Spell List
       </button>
     </div>

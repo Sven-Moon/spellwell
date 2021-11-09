@@ -1,18 +1,55 @@
+<h2>Spells</h2>
 <div>
-  <ul *ngFor="let result of results">
-    <li>
-      {{ result.name }}
-      <ng-container *ngIf="result.dc">
-        - {{ result.dc.dc_type.name }}</ng-container
-      >
-      <ul *ngFor="let class of result.classes">
-        <li>{{ class.name }}</li>
-      </ul>
-      <ng-container *ngIf="result.classes">
-        <ul *ngFor="let subclass of result.subclasses">
-          <li>{{ subclass.name }}</li>
-        </ul>
-      </ng-container>
-    </li>
-  </ul>
+  <ng-container *ngFor="let result of results">
+    <div class="spell-container">
+      <h3>{{ result.name }}</h3>
+      <div class="row-wrap">
+        <div class="info-container mr-1">
+          <table>
+            <tr>
+              <th>Range</th>
+              <th>Damage</th>
+              <th>Cast Time</th>
+            </tr>
+            <tr>
+              <td>{{ result.range }}</td>
+              <td>coming soon</td>
+              <td>{{ result.casting_time }}</td>
+            </tr>
+          </table>
+          <div *ngIf="result.dc" class="dc-type">
+            Saving Throw:
+            <img
+              src="./assets/images/stat_icons/{{
+                result.dc.dc_type.index
+              }}_icon.png"
+              alt="{{ result.dc.dc_type.name }} icon"
+            />
+            {{ result.dc.dc_type.name }}
+          </div>
+          <div *ngIf="!result.dc" class="dc-type">Saving Throw: N/A</div>
+        </div>
+        <!-- spell info -->
+        <div>
+          <div class="row-wrap">
+            <div class="info-container mr-1">
+              Classes
+              <ul *ngFor="let class of result.classes">
+                <li>{{ class.name }}</li>
+              </ul>
+            </div>
+            <div class="info-container">
+              Subclasses
+              <ng-container *ngIf="result.classes">
+                <ul *ngFor="let subclass of result.subclasses">
+                  <li>{{ subclass.name }}</li>
+                </ul>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <!-- info-class -->
+      </div>
+    </div>
+  </ng-container>
 </div>

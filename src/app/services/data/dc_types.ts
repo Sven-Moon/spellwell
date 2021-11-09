@@ -6,5 +6,5 @@ export const dc_typesList = [
   'int',
   'str',
   'wis',
-  'None'
+  'none'
 ]

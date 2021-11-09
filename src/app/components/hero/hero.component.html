@@ -15,7 +15,7 @@
       (blur)="updateHero()"
     />
   </div>
-  <div class="mods-container">
+  <div class="mods-container info-container">
     <div class="frame">
       <div class="mod-control-group number">
         <label for="level">Level</label>
@@ -24,6 +24,7 @@
           formControlName="level"
           class="form-control"
           (change)="updateHero()"
+          min="1"
         />
       </div>
       <!-- level -->
@@ -34,6 +35,7 @@
           formControlName="spellMod"
           class="form-control"
           (change)="updateHero()"
+          min="-4"
         />
       </div>
       <!-- spell mod -->

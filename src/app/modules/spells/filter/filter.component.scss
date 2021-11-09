@@ -1,0 +1,32 @@
+@import "/src/styles.scss";
+@import '/src/sass/variables';
+
+.all-button {
+  border-top-left-radius: .3rem;
+  border-bottom-left-radius: .3rem;
+}
+.none-button {
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+}
+
+.filter-container {
+  background-color: $frame-bg;
+  border-radius: .3rem;
+  padding: 0.5rem;
+  margin-bottom: .5rem;
+}
+
+h3 {
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+}
+
+.control-no-wrap {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.stick-to-label {
+  margin-left: -18px;
+}

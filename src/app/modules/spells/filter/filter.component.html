@@ -1,48 +1,91 @@
-<h3>Filters</h3>
+<h2>Filters</h2>
 <form [formGroup]="form">
-  <div class="flex-row">
-    <h5>Class Options</h5>
-    Select:
-    <button type="button" (click)="selectAll('class')">All</button>
-    <button type="button" (click)="deselectAll('class')">None</button>
-  </div>
-  <div class="flex-row">
-    <ng-container
-      *ngFor="let checkbox of heroClasses; let i = index"
-      formArrayName="classOptions"
-    >
-      <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
-    </ng-container>
+  <div class="filter-container">
+    <div class="flex-row">
+      <h3>
+        Class Options
+        <button type="button" (click)="selectAll('class')" class="all-button">
+          All
+        </button>
+        <button
+          type="button"
+          (click)="deselectAll('class')"
+          class="none-button"
+        >
+          None
+        </button>
+      </h3>
+    </div>
+    <div class="flex-row">
+      <ng-container
+        *ngFor="let checkbox of heroClasses; let i = index"
+        formArrayName="classOptions"
+      >
+        <div class="control-no-wrap">
+          <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
+        </div>
+      </ng-container>
+    </div>
   </div>
   <!-- class -->
-  <div class="flex-row">
-    <h5>Subclass Options</h5>
-    Select:
-    <button type="button" (click)="selectAll('subclass')">All</button>
-    <button type="button" (click)="deselectAll('subclass')">None</button>
-  </div>
-  <div class="flex-row">
-    <ng-container
-      *ngFor="let checkbox of heroSubclasses; let i = index"
-      formArrayName="subclassOptions"
-    >
-      <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
-    </ng-container>
+  <div class="filter-container">
+    <div class="flex-row">
+      <h3>
+        Subclass Options
+        <button
+          type="button"
+          (click)="selectAll('subclass')"
+          class="all-button"
+        >
+          All
+        </button>
+        <button
+          type="button"
+          (click)="deselectAll('subclass')"
+          class="none-button"
+        >
+          None
+        </button>
+      </h3>
+    </div>
+    <div class="flex-row">
+      <ng-container
+        *ngFor="let checkbox of heroSubclasses; let i = index"
+        formArrayName="subclassOptions"
+      >
+        <div class="control-no-wrap">
+          <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
+        </div>
+      </ng-container>
+    </div>
   </div>
   <!-- subclass-->
-  <div class="flex-row">
-    <h5>Spell Save (DC) Options</h5>
-    Select:
-    <button type="button" (click)="selectAll('dc_type')">All</button>
-    <button type="button" (click)="deselectAll('dc_type')">None</button>
+  <div class="filter-container">
+    <div class="flex-row">
+      <h3>
+        Saving Throw
+        <button type="button" (click)="selectAll('dc_type')" class="all-button">
+          All
+        </button>
+        <button
+          type="button"
+          (click)="deselectAll('dc_type')"
+          class="none-button"
+        >
+          None
+        </button>
+      </h3>
+    </div>
+    <div class="flex-row-wrap">
+      <ng-container
+        *ngFor="let checkbox of spellDcTypes; let i = index"
+        formArrayName="dcTypeOptions"
+      >
+        <div class="control-no-wrap">
+          <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
+        </div>
+      </ng-container>
+    </div>
   </div>
-  <div class="flex-row">
-    <ng-container
-      *ngFor="let checkbox of spellDcTypes; let i = index"
-      formArrayName="dcTypeOptions"
-    >
-      <input type="checkbox" [formControlName]="i" />{{ checkbox.title }}
-    </ng-container>
-  </div>
-  <!-- subclass-->
 </form>
+<!-- dc_types -->
