@@ -45,7 +45,11 @@
     <div class="frame">
       <div class="mod-control-group">
         <label for="class" class="">Class</label>
-        <select formControlName="class" class="form-control">
+        <select
+          formControlName="class"
+          class="form-control"
+          (change)="updateHero()"
+        >
           <option value="null" selected></option>
           <option *ngFor="let class of heroClasses" [value]="class.value">
             {{ class.title }}
@@ -55,7 +59,11 @@
       <!-- class -->
       <div class="mod-control-group">
         <label for="subclass" class="">Subclass</label>
-        <select formControlName="subclass" class="form-control">
+        <select
+          formControlName="subclass"
+          class="form-control"
+          (change)="updateHero()"
+        >
           <option value="null" selected></option>
           <option
             *ngFor="let subclass of heroSubclasses"

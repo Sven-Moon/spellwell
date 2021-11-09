@@ -26,8 +26,8 @@ export class HeroComponent implements OnInit {
 
   heroForm = this.fb.group({
     name: [''],
-    level: ['1', Validators.min(1)],
-    spellMod: ['0', Validators.min(1)],
+    level: [1, Validators.min(1)],
+    spellMod: [0, Validators.min(1)],
     class: [''],
     subclass: [''],
   })
